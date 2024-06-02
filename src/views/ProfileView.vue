@@ -2,6 +2,7 @@
   <div class="main">
     <Navbar />
     <div class="content">
+      <h1>Profile</h1>
       <form @submit.prevent="saveChanges">
         <table>
           <tr>
@@ -26,13 +27,17 @@
               <input v-model="profile.address" type="text" class="input" />
             </td>
           </tr>
+          <tr>
+            <td colspan="2" class="buttons-cell">
+              <div class="buttons">
+                <button type="submit" class="btn save">Save</button>
+                <button type="button" class="btn reset" @click="resetData">
+                  Reset
+                </button>
+              </div>
+            </td>
+          </tr>
         </table>
-        <div class="buttons">
-          <button type="submit" class="btn save">Save</button>
-          <button type="button" @click="resetData" class="btn reset">
-            Reset
-          </button>
-        </div>
       </form>
     </div>
   </div>
@@ -162,10 +167,13 @@ td {
   border-radius: 5px;
 }
 
+.buttons-cell {
+  text-align: center; /* Center the content horizontally */
+  padding: 20px 10px; /* Add some padding for better spacing */
+}
+
 .buttons {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
+  display: inline-block; /* Keep the buttons inline */
 }
 
 .btn {

@@ -2,6 +2,7 @@
   <div class="main">
     <Navbar />
     <div class="content">
+      <h1>About</h1>
       <table>
         <tr>
           <th>Name</th>

@@ -1,14 +1,24 @@
 <template>
   <div class="navbar">
     <div class="icon">
-      <h2 class="logo">W.Tech.</h2>
+      <h1 class="logo">Web Technology</h1>
+      <br />
+      <h1 class="logo">Lab Test 2</h1>
     </div>
     <div class="menu">
       <ul>
-        <li><router-link to="/">HOME</router-link></li>
-        <li><router-link to="/about">ABOUT</router-link></li>
-        <li><router-link to="/profile">PROFILE</router-link></li>
-        <li><router-link to="/photos">PHOTOS</router-link></li>
+        <li>
+          <router-link to="/" exact-active-class="active">HOME</router-link>
+        </li>
+        <li>
+          <router-link to="/about" active-class="active">ABOUT</router-link>
+        </li>
+        <li>
+          <router-link to="/profile" active-class="active">PROFILE</router-link>
+        </li>
+        <li>
+          <router-link to="/photos" active-class="active">PHOTOS</router-link>
+        </li>
       </ul>
     </div>
     <div class="search">
@@ -17,7 +27,7 @@
         type="search"
         v-model="searchQuery"
         @input="searchPhotos"
-        placeholder="Type To Find"
+        placeholder="Find Photos"
       />
       <button class="btn" @click="searchPhotos">Find</button>
     </div>
@@ -48,7 +58,7 @@ export default {
   width: 100%;
   height: 75px;
   margin: auto;
-  background-color: #333; /* Dark grey background */
+  background-color: #333;
   background-position: center;
   background-size: cover;
 }
@@ -62,11 +72,12 @@ export default {
 .logo {
   color: #fc8d1e;
   font-size: 20px;
+  font-weight: bold;
   font-family: Cambria;
   padding-left: 50px;
   float: left;
   padding-top: 10px;
-  margin-top: 5px;
+  margin-top: 0px;
 }
 
 .menu {
@@ -98,6 +109,10 @@ ul li a {
 }
 
 ul li a:hover {
+  color: #ff7200;
+}
+
+ul li .active {
   color: #ff7200;
 }
 
