@@ -3,26 +3,30 @@
     <Navbar />
     <div class="content">
       <form @submit.prevent="saveChanges">
-        <div class="row">
-          <label>Name</label>
-          <span>:</span>
-          <input v-model="profile.name" type="text" class="input" />
-        </div>
-        <div class="row">
-          <label>Course Year</label>
-          <span>:</span>
-          <input v-model="profile.courseYear" type="text" class="input" />
-        </div>
-        <div class="row">
-          <label>Matrix No.</label>
-          <span>:</span>
-          <input v-model="profile.matrixNo" type="text" class="input" />
-        </div>
-        <div class="row">
-          <label>Address</label>
-          <span>:</span>
-          <input v-model="profile.address" type="text" class="input" />
-        </div>
+        <table>
+          <tr>
+            <th>Name</th>
+            <td><input v-model="profile.name" type="text" class="input" /></td>
+          </tr>
+          <tr>
+            <th>Course Year</th>
+            <td>
+              <input v-model="profile.courseYear" type="text" class="input" />
+            </td>
+          </tr>
+          <tr>
+            <th>Matrix No.</th>
+            <td>
+              <input v-model="profile.matrixNo" type="text" class="input" />
+            </td>
+          </tr>
+          <tr>
+            <th>Address</th>
+            <td>
+              <input v-model="profile.address" type="text" class="input" />
+            </td>
+          </tr>
+        </table>
         <div class="buttons">
           <button type="submit" class="btn save">Save</button>
           <button type="button" @click="resetData" class="btn reset">
@@ -66,47 +70,90 @@ export default {
 </script>
 
 <style scoped>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}
+
 .main {
   width: 100%;
+  height: 100%;
   background-color: #000;
   background-image: url("@/assets/images/bg-img.jpeg");
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
-  min-height: 100vh;
+  overflow-y: auto;
 }
 
 .content {
-  width: 80%;
+  width: 100%;
+  max-width: 1200px;
   height: auto;
   margin: auto;
   color: #fff;
   position: relative;
-  padding-top: 50px;
+  padding: 20px;
 }
 
-.row {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 20px;
+.content h1 {
+  font-family: "Times New Roman";
+  font-size: 55px;
+  padding-left: 20px;
+  margin-top: 9%;
+  letter-spacing: 2px;
 }
 
-.row label {
-  flex: 1;
+.content span {
+  color: #ff7200;
+  font-size: 65px;
+}
+
+.content .par {
+  padding-left: 20px;
+  padding-bottom: 25px;
+  font-family: "Arial";
+  letter-spacing: 1.2px;
+  line-height: 30px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  border: 1px solid #fff;
+}
+
+tr {
+  border-bottom: 1px solid #fff;
+}
+
+th,
+td {
+  padding: 10px;
+  text-align: left;
   font-size: 18px;
-  color: #fff;
   font-family: Arial, sans-serif;
 }
 
-.row span {
-  flex: 0 0 20px;
+th {
   color: #ff7200;
-  text-align: center;
-  font-size: 18px;
+  border-right: 1px solid #fff;
+}
+
+td {
+  color: #fff;
 }
 
 .input {
-  flex: 2;
+  width: 100%;
   background: transparent;
   border: 1px solid #ff7200;
   color: #fff;
